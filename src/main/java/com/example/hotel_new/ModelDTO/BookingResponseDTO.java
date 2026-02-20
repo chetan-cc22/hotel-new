@@ -7,22 +7,13 @@ import java.time.LocalDateTime;
 
 @Data
 public class BookingResponseDTO {
-    private Long bookingId;
+
+    private Long id;  // changed from bookingId
     private LocalDate checkIn;
     private LocalDate checkOut;
 
-    //frotnend ke variable se matching
+    // Must match frontend template exactly
     private String type;
     private Double price;
     private LocalDateTime lastBooked;
-
-//    private LocalDateTime bookingTime;
-
-//    private Long roomId;
-//    private String roomType;
-//    private Double roomPrice;
-
 }
-
-
-

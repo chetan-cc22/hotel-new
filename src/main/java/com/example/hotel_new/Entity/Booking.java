@@ -25,4 +25,9 @@ public class Booking {
     @JoinColumn(name = "room_id")
     private Room room;
 
+    //link  krega user se booking ko
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
 }
