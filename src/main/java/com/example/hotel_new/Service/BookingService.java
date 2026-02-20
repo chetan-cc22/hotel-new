@@ -27,11 +27,12 @@ public class BookingService {
         dto.setBookingId(booking.getId());
         dto.setCheckIn(booking.getCheckIn());
         dto.setCheckOut(booking.getCheckOut());
-        dto.setBookingTime(booking.getBookingTime());
+        dto.setLastBooked(booking.getBookingTime());
 
-        dto.setRoomId(booking.getRoom().getId());
-        dto.setRoomType(booking.getRoom().getType());
-        dto.setRoomPrice(booking.getRoom().getPrice());
+        //frontend me use nhi hai roomID ka
+        //dto.setRoomId(booking.getRoom().getId());
+        dto.setType(booking.getRoom().getType());
+        dto.setPrice(booking.getRoom().getPrice());
 
         return dto;
     }

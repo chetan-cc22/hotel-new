@@ -7,10 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/rooms")    //aaj hi sikhaya crossorigin ka
-@CrossOrigin(origins = "http://localhost:4200")   /// angular frontend manav ke liye
+@CrossOrigin(origins = "*")   /// angular frontend manav ke liye
 public class RoomController {
 
     @Autowired
@@ -21,14 +22,23 @@ public class RoomController {
         return roomService.getAllRooms();
     }
 
-    @PostMapping("/add")
+    @PostMapping
     public Room addRoom(@RequestBody Room room) {
         return roomService.addOrUpdateRoom(room);
     }
 
-    @DeleteMapping("/{id}/{qty}")
-    public void deleteQuantity(@PathVariable Long id, @PathVariable int qty) {
-        roomService.deleteRoomQuantity(id, qty);
+
+    @PatchMapping("/{id}/reduce")
+    public void reduceQuantity(
+            @PathVariable Long id,
+            @RequestBody Map<String, Integer> body) {
+        roomService.deleteRoomQuantity(id, body.get("quantity"));
     }
 
+//    @DeleteMapping("/{id}/{qty}")
+//    public void deleteQuantity(@PathVariable Long id, @PathVariable int qty) {
+//        roomService.deleteRoomQuantity(id, qty);
+//    }
+
+      // postmapping add room method is changed in this controller
 }
