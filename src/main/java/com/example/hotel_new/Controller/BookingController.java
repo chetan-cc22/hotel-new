@@ -21,7 +21,7 @@ public class BookingController {
 
     @Autowired
     private BookingService bookingService;
-    //abhi add kiya yeh method bhi
+    //abhi update kiya yeh
     @PostMapping
     public ResponseEntity<String> bookRoom(
             @RequestBody BookingRequestDTO request) {
@@ -44,31 +44,7 @@ public class BookingController {
     }
 
 
-//    @PostMapping
-//    public ResponseEntity<String> bookRoom(
-//            @RequestBody Map<String, Object> data) {
-//
-//        Long roomId = Long.valueOf(data.get("roomId").toString());
-//
-//        Booking booking = new Booking();
-//        booking.setCheckIn(LocalDate.parse(data.get("checkIn").toString()));
-//        booking.setCheckOut(LocalDate.parse(data.get("checkOut").toString()));
-//
-//        boolean success = bookingService.createBooking(roomId, booking);
-//
-//        if (success) {
-//            return ResponseEntity.ok("Booking Confirmed");
-//        } else {
-//            return ResponseEntity.badRequest().body("Room not available");
-//        }
-//    }
 
-//    @GetMapping("/history")
-//    public List<BookingResponseDTO> getHistory() {
-//        return bookingService.getHistory();
-//    }
-
-    //abhi add kiya
     @GetMapping("/history/{userId}")
     public List<BookingResponseDTO> getHistory(@PathVariable Long userId) {
         return bookingService.getHistory(userId);

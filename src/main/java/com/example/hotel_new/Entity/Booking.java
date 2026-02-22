@@ -20,12 +20,12 @@ public class Booking {
     private LocalDate checkOut;
     private LocalDateTime bookingTime;
 
-    // We link the booking to a Room to fetch type/price later
+    // many bookings for one room
     @ManyToOne
     @JoinColumn(name = "room_id")
     private Room room;
 
-    //link  krega user se booking ko
+    //many bookings , ek user kar sakta hai
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

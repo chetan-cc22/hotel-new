@@ -8,11 +8,13 @@ import java.time.LocalDateTime;
 @Data
 public class BookingResponseDTO {
 
+
+    //yeh history fetch krne me kaam ata hai
     private Long id;  // changed from bookingId
     private LocalDate checkIn;
     private LocalDate checkOut;
 
-    // Must match frontend template exactly
+    // manav ka frontend logic
     private String type;
     private Double price;
     private LocalDateTime lastBooked;

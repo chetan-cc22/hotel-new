@@ -16,6 +16,5 @@ public class User {
     @Column(unique = true)
     private String email;
     private String password;
-    private String role; // kaam baki hai profiles kaa admin and customer
-
+    private String role; //admin and customer wala
 }

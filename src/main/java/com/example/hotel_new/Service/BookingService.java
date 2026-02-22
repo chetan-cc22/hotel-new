@@ -64,25 +64,6 @@ public class BookingService {
     }
 
 
-    // Logic matches 'bookRoom' frontend wala
-//    @Transactional
-//    public boolean createBooking(Long roomId,Long userId,Booking bookingDetails) {
-//        Room room = roomRepository.findById(roomId).orElse(null);
-//
-//        if (room != null && room.getCount() > 0) {
-//
-//            room.setCount(room.getCount() - 1);
-//            roomRepository.save(room);
-//
-//            //histroy ka logic
-//            bookingDetails.setRoom(room);
-//            bookingDetails.setBookingTime(LocalDateTime.now());
-//            bookingRepository.save(bookingDetails);
-//            return true;
-//        }
-//        return false;
-//    }
-
     public List<BookingResponseDTO> getHistory(Long userId) {
         return bookingRepository.findByUserId(userId)
                 .stream()
@@ -90,12 +71,5 @@ public class BookingService {
                 .toList();
     }
 
-
-//    public List<BookingResponseDTO> getHistory() {
-//        return bookingRepository.findAll()
-//                .stream()
-//                .map(this::mapToDTO)
-//                .toList();
-//    }
 
 }

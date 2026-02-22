@@ -36,11 +36,6 @@ public class RoomController {
         return ResponseEntity.ok(roomService.addOrUpdateRoom(room));
     }
 
-//    @PostMapping
-//    public Room addRoom(@RequestBody Room room) {
-//        return roomService.addOrUpdateRoom(room);
-//    }
-
 
     //reduce quantity wala loic for admin
     @PatchMapping("/{id}/reduce")
@@ -57,13 +52,6 @@ public class RoomController {
         return ResponseEntity.ok("Quantity Updated");
     }
 
-//    @PatchMapping("/{id}/reduce")
-//    public void reduceQuantity(
-//            @PathVariable Long id,
-//            @RequestBody Map<String, Integer> body) {
-//        roomService.deleteRoomQuantity(id, body.get("quantity"));
-//    }
-
 
     //delete room admin wala yeh bhi
     @DeleteMapping("/{id}")
@@ -79,16 +67,4 @@ public class RoomController {
         return ResponseEntity.ok("Room Deleted");
     }
 
-    //abhi add kiya hai isko
-//    @DeleteMapping("/{id}")
-//    public void deleteRoom(@PathVariable Long id) {
-//        roomService.deleteRoom(id);
-//    }
-
-//    @DeleteMapping("/{id}/{qty}")
-//    public void deleteQuantity(@PathVariable Long id, @PathVariable int qty) {
-//        roomService.deleteRoomQuantity(id, qty);
-//    }
-
-      // postmapping add room method is changed in this controller
 }
