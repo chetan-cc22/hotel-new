@@ -1,0 +1,33 @@
+package com.example.hotel_new.Entity;
+
+
+import jakarta.persistence.*;
+import lombok.Data;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
+@Entity
+@Data
+@Table(name = "bookings")
+public class Booking {
+
+    @Id
+    @GeneratedValue
+    private Long id;
+
+    private LocalDate checkIn;
+    private LocalDate checkOut;
+    private LocalDateTime bookingTime;
+
+    // many bookings for one room
+    @ManyToOne
+    @JoinColumn(name = "room_id")
+    private Room room;
+
+    //many bookings , ek user kar sakta hai
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+}
